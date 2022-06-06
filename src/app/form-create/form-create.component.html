@@ -1,0 +1,45 @@
+<div class="col mt-2">
+  <p-panel>
+    <ng-template pTemplate="header"> Form Create Todo </ng-template>
+    <div class="card">
+      <div class="field">
+        <label for="Title">Title</label>
+        <input
+          id="Title"
+          type="text"
+         [(ngModel)]="title"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        />
+      </div>
+      <div class="field">
+        <label for="Detail">Details</label>
+        <textarea
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+          [rows]="5"
+          [cols]="30"
+          pInputTextarea
+          [(ngModel)]="detail"
+          autoResize="autoResize"
+        ></textarea>
+      </div>
+
+      <div class="field col-12 md:col-4">
+        <label for="Detail">Start</label>
+        <span class="p-float-label">
+
+          <p-calendar inputId="calendar" [(ngModel)]="start_date"></p-calendar>
+          <label for="calendar">Calendar</label>
+        </span>
+      </div>
+      <div class="field col-12 md:col-4">
+        <label for="Detail">End</label>
+        <span class="p-float-label">
+          <p-calendar inputId="calendar" [(ngModel)]="end_date"></p-calendar>
+          <label for="calendar">Calendar</label>
+        </span>
+      </div>
+
+      <button type="submit" pButton (click)="create()">Add ToDo</button>
+    </div>
+  </p-panel>
+</div>
