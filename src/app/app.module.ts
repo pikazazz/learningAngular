@@ -12,9 +12,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TableModule} from 'primeng/table';
 import { FormCreateComponent } from './form-create/form-create.component';
 import { TableListComponent } from './table-list/table-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {CalendarModule} from 'primeng/calendar';
-
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,10 @@ import {CalendarModule} from 'primeng/calendar';
     BrowserAnimationsModule,
     TableModule,
     FormsModule,
-    CalendarModule
+    CalendarModule,
+    ReactiveFormsModule,
+    MessageModule,
+    MessagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

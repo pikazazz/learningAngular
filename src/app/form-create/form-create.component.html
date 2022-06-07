@@ -7,10 +7,13 @@
         <input
           id="Title"
           type="text"
-         [(ngModel)]="title"
+          [formControl]="title"
           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
         />
       </div>
+      <span class="p-float-label" *ngIf="title.invalid && title.touched">
+        <p-message severity="error" text="กรุณากรอกหัวข้อ"></p-message>
+      </span>
       <div class="field">
         <label for="Detail">Details</label>
         <textarea
@@ -18,26 +21,38 @@
           [rows]="5"
           [cols]="30"
           pInputTextarea
-          [(ngModel)]="detail"
+          [formControl]="detail"
           autoResize="autoResize"
         ></textarea>
       </div>
 
+      <span class="p-float-label" *ngIf="detail.invalid && detail.touched">
+        <p-message severity="error" text="กรุณากรอกรายละเอียด"></p-message>
+      </span>
+
       <div class="field col-12 md:col-4">
         <label for="Detail">Start</label>
         <span class="p-float-label">
-
-          <p-calendar inputId="calendar" [(ngModel)]="start_date"></p-calendar>
+          <p-calendar
+            inputId="calendar"
+            [formControl]="start_date"
+          ></p-calendar>
           <label for="calendar">Calendar</label>
         </span>
       </div>
+      <span class="p-float-label" *ngIf="start_date.invalid && start_date.touched">
+        <p-message severity="error" text="กรุณาเลือกวันที่เริ่มต้น"></p-message>
+      </span>
       <div class="field col-12 md:col-4">
         <label for="Detail">End</label>
         <span class="p-float-label">
-          <p-calendar inputId="calendar" [(ngModel)]="end_date"></p-calendar>
+          <p-calendar inputId="calendar" [formControl]="end_date"></p-calendar>
           <label for="calendar">Calendar</label>
         </span>
       </div>
+      <span class="p-float-label" *ngIf="end_date.invalid && end_date.touched">
+        <p-message severity="error" text="กรุณาเลือกวันที่เริ่มต้น"></p-message>
+      </span>
 
       <button type="submit" pButton (click)="create()">Add ToDo</button>
     </div>
